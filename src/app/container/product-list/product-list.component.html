@@ -1,0 +1,10 @@
+<app-filter [All]="TotalProducts" [InStock]="TotalInStock" [OutOfStock]="TotalOutStock" (OnBtnChange)="OnFilterChange($event)"></app-filter>
+<div class="ekart--products--container">
+    <!--*ngIf="btnchangevalue === 'All' || prod.is_in_inventory.toString() === btnchangevalue "-->
+    <ng-container *ngFor="let prod of products">
+        <app-product 
+        (click)=" selectedProduct = prod "
+        [product]="prod" *ngIf="Searchtxt === '' || prod.name.toLowerCase().includes(Searchtxt)">
+        </app-product>
+    </ng-container>
+</div>
